@@ -19,8 +19,24 @@ public class TestTeam {
     }
   }
   
-  // TODO testConstructorValidHeadcoach
-  // TODO testConstructorValidFunding
+  // DONE testConstructorValidHeadcoach
+  @Test
+  public void testConstructoValidHeadCoach() {
+    try{
+      new Team("USA",null,500);
+      fail("Should have thrown IllegalArgumentException");
+    } catch (final Throwable ex) {
+    }
+  }
+  // DONE testConstructorValidFunding
+   @Test
+  public void testConstructoValidFunding() {
+    try{
+      new Team("USA","klinsmann",-300);
+      fail("Should have thrown IllegalArgumentException");
+    } catch (final Throwable ex) {
+    }
+  }
 
   @Test
   public void testGetName() {
@@ -29,6 +45,20 @@ public class TestTeam {
     assertEquals(name, t.getName());
   }
   
-  // TODO testGetHeadcoach
-  // TODO testGetFunding
+  // DONE testGetHeadcoach
+  @Test
+  public void testGetHeadcoach(){
+    final String headcoach = "Klinsmann";
+    final Team t = makeTeamFixture("USA", headcoach, 500);
+    assertEquals(headcoach, t.getHeadcoach());
+  }
+  
+  // DONE testGetFunding
+   @Test
+  public void testGetFunding(){
+    final int funding = 500;
+    final Team t = makeTeamFixture("USA", "Klinsmann", funding);
+    assertEquals(funding, t.getFunding());
+  }
+  
 }
